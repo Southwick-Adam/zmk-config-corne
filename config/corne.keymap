@@ -24,7 +24,7 @@
 //              |  A  |  R  |  S  |  T  |  D  |    |  H  |  N  |  E  |  I  |  O  |
 //              |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  | ./! |  ;  |  '  |
 //
-//                 | TAB:LSHFT | SPC | CMD:L1 |    | L1:CTRL | ENT | BSP:RSHIFT |
+//                 | TAB:LSHFT | SPC | CMD:L1 |    | L1:CTRL | ENT:L2 | BSP:RSHIFT |
 // -----------------------------------------------------------------------------------------
                         bindings = <
 &none     &mt CAPS Q &kp W &kp F &kp P &kp G /**/ &kp J &kp L &kp U &kp Y &kp COMMA           &none
@@ -40,23 +40,23 @@
 //              |  &  |  4  |  5  |  6  |  0  |    |  LEFT  |  UP  | DOWN | RIGHT |  %  |
 //              |  @  |  1  |  2  |  3  |  .  |    |  (/<   |  )/> |  [   |   ]   |  \  |
 //
-//                 | TAB:LSHFT | SPC |   L0   |    | L2 + CMD  | ENT | BSP:RSHIFT |
+//                 | TAB:LSHFT | SPC | CMD:L2 |    | L0:CTRL | ENT | BSP:RSHIFT |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+&none     &mt CAPS Q &kp W &kp F &kp P &kp G /**/ &kp J &kp L &kp U &kp Y &kp COMMA           &none
+&none          &kp A &kp R &kp S &kp T &kp D /**/ &kp H &kp N &kp E &kp I &kp O               &none
+&none          &kp Z &kp X &kp C &kp V &kp B /**/ &kp K &kp M &kp DOT &kp SEMI &kp SQT        &none
+           &mt LSHIFT TAB &kp SPACE &sk LCMD /**/ &kp RET &to 1 &mt RSHIFT BSPC
                         >;
                 };
 
                 func_layer {
 // -----------------------------------------------------------------------------------------
-//     | ESC |  F1 |  F2 |      F3     |     F4    |    |     F5   |    F6  |   F7 |  F8 |  F9 |
-//     | F10 | F11 | F12 | BRIGHT_DOWN | BRIGHT_UP |    | VOL_DOWN | VOL_UP | MUTE |  X  |  X  |
-//     |pg_up|pg_dn| end |  X  |  X  |    |  X  |  X  |  X  |  X  |  X  |
+//      | ESC |  .  |  .  |     .     |     .     |    |new_wind| new_tab|  .   |  .  | pg_up |
+//      |  .  |emoji|  .  | BRIGHT_DN | BRIGHT_UP |    | VOL_DN | VOL_UP | MUTE |  .  | pg_dn |
+//      |fname|lname|email|     .     |    ALT    |    |   DEL  |    .   |  .   |  .  |  end  |
 //
-//                 | TAB:LSHFT | SPC | CMD:L1 |    | L1:CTRL | ENT | BSP:RSHIFT |
+//                              |  .  |  .  |  .  |    | trans |  .  |  game  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
@@ -68,11 +68,11 @@
 
                 game_layer {
 // -----------------------------------------------------------------------------------------
-//              |Q:Cap|  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  | ,/? |
-//              |  A  |  R  |  S  |  T  |  D  |    |  H  |  N  |  E  |  I  |  O  |
-//              |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  | ./! |  ;  |  '  |
+//              | ESC |  Q  |  W  |  E  |  R  |    |  1  |   2  |  UP  |   3   |  4   |
+//              |  .  |  A  |  S  |  D  |  F  |    |  .  | LEFT | DOWN | RIGHT | MUTE |
+//              |  Z  |  X  |  C  |  V  |  B  |    |  I  |   J  |   M  |   T   | CTRL |
 //
-//                 | TAB:LSHFT | SPC | CMD:L1 |    | L1:CTRL | ENT | BSP:RSHIFT |
+//                      | LSHIFT | SPC |  L1  |    |  L2  | SPC | RSHIFT |
 // -----------------------------------------------------------------------------------------
                         bindings = <
    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC

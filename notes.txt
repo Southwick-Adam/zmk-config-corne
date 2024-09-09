@@ -4,3 +4,4 @@ sticky key or hold  for temp layer 1
 
 make mod morphs for new shift pairings
 
+ent hold to jump straight to function access
