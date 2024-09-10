@@ -147,11 +147,11 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-//              |  Q  |  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  | ,/? |
-//              |  A  |  R  |  S  |  T  |  D  |    |  H  |  N  |  E  |  I  |  O  |
-//              |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  | ./! |  ;  |  '  |
+//           |  Q  |  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  | ,/? |
+//           |  A  |  R  |  S  |  T  |  D  |    |  H  |  N  |  E  |  I  |  O  |
+//           |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  | ./! |  ;  |  '  |
 //
-//                 | LSHFT:TAB | SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
+//              | LSHFT:TAB | SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
 &none &kp Q &kp W &kp F &kp P &kp G &kp J &kp L &kp U &kp Y &kp COMMA &none
@@ -163,11 +163,11 @@
 
                 num_layer {
 // -----------------------------------------------------------------------------------------
-//              |  $  |  7  |  8  |  9  |  #  |    |  +  |  -   |  UP  |   *   |  /  |
-//              |  &  |  4  |  5  |  6  |  0  |    |  =  | LEFT | DOWN | RIGHT |  _  |
-//              |  `  |  1  |  2  |  3  |  .  |    | (/< | )/>  |   [  |   ]   |  \  |
+//           |  $  |  7  |  8  |  9  |  #  |    |  +  |  -   |  UP  |   *   |  /  |
+//           |  &  |  4  |  5  |  6  |  0  |    |  =  | LEFT | DOWN | RIGHT |  _  |
+//           |  `  |  1  |  2  |  3  |  .  |    | (/< | )/>  |   [  |   ]   |  \  |
 //
-//                  | LSHFT:TAB | SPC |  CMD  |    | CTRL:L0 | L2:ENT | RSHFT:BSP |
+//               | LSHFT:TAB | SPC |  CMD  |    | CTRL:L0 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
 &none &kp DLLR &kp N7 &kp N8 &kp N9 &kp HASH &kp PLUS &kp MINUS &kp UP &kp ASTRK &kp FSLH &none
@@ -179,11 +179,11 @@
 
                 func_layer {
 // -----------------------------------------------------------------------------------------
-//      | ESC |  .  |  .  |     .     |     .     |    |new_inc | new_win|new_tab|  .  | pg_up |
-//      |emoji|  .  |  .  | BRIGHT_DN | BRIGHT_UP |    | VOL_DN | VOL_UP | MUTE  |  .  | pg_dn |
-//      |fname|lname|email|     .     |     .     |    |    .   |    .   |   .   |  .  |  end  |
+//    | ESC |  .  |  .  |    .    |    .    |    |new_inc | new_win|new_tab|  .  | pg_up |
+//    |emoji|  .  |  .  |BRIGHT_DN|BRIGHT_UP|    | VOL_DN | VOL_UP | MUTE  |  .  | pg_dn |
+//    |fname|lname|email|    .    |    .    |    |    .   |    .   |   .   |  .  |  end  |
 //
-//                           |  GAME  |  .  |  .  |    |  .  |  .  |  .  |
+//                     |  GAME  |  .  |  .  |    |  .  |  .  |  .  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
 &none &kp ESC &none &none &none &none &new_inc_win &new_win &new_tab &none &kp PG_UP &none
@@ -195,15 +195,15 @@
 
                 game_layer {
 // -----------------------------------------------------------------------------------------
-//              | ESC |  Q  |  W  |  E  |  R  |    |   1  |   2  |  UP  |   3   |  4   |
-//              |  .  |  A  |  S  |  D  |  F  |    | MUTE | LEFT | DOWN | RIGHT |  .   |
-//              |  Z  |  X  |  C  |  V  |  B  |    |   I  |   J  |   M  |   T   | CTRL |
+//           | ESC  |  Q  |  W  |  E  |  R  |    |   1  |   2  |  UP  |   3   |  4   |
+//           |VOL_DN|  A  |  S  |  D  |  F  |    | MUTE | LEFT | DOWN | RIGHT |VOL_UP|
+//           |  Z   |  X  |  C  |  V  |  B  |    |   I  |   J  |   M  |   T   | CTRL |
 //
-//                      | LSHIFT | SPC |  L0  |    |  L0  | SPC | RSHIFT |
+//                    | LSHIFT | SPC |  L0  |    |  L0  | SPC | RSHIFT |
 // -----------------------------------------------------------------------------------------
                         bindings = <
 &none &kp ESC &kp Q &kp W &kp E &kp R &kp N1 &kp N2 &kp UP &kp N3 &kp N4 &none
-&none &none &kp A &kp S &kp D &kp F &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT &none &none
+&none &kp C_VOL_DN &kp A &kp S &kp D &kp F &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT C_VOL_UP &none
 &none &kp Z &kp X &kp C &kp V &kp B &kp I &kp J &kp M &kp T &kp LCTRL &none
            &kp LSHIFT &kp SPACE &to DEFAULT &mo DEFAULT &kp SPACE &kp RSHIFT
                         >;
