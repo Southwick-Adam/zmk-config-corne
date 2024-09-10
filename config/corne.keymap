@@ -15,70 +15,201 @@
 #define GAME    3
 
 / {
+        behaviors {
+                num_cmd: num_cmd {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "NUM_CMD";
+                        bindings = <&mo NUM &sk LCMD>;
+                        tapping-term-ms = <200>;
+                };
+
+                ctrl_num: ctrl_num {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "CTRL_NUM";
+                        bindings = <&kp LCTRL &to NUM>;
+                        tapping-term-ms = <200>;
+                };
+
+                ctrl_default: ctrl_default {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "CTRL_DEFAULT";
+                        bindings = <&kp LCTRL &to DEFAULT>;
+                        tapping-term-ms = <200>;
+                };
+
+                func_enter: func_enter {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "FUNC_ENTER";
+                        bindings = <&mo FUNC &sk RET>;
+                        tapping-term-ms = <200>;
+                };
+
+                //MACROS
+                new_win: new_win {
+                        compatible = "zmk,behavior-macro";
+                        label = "NEW_WINDOW";
+                        bindings = <&kp LCTRL &kp N>;
+                };
+                new_inc_win: new_inc_win {
+                        compatible = "zmk,behavior-macro";
+                        label = "NEW_INCOG_WINDOW";
+                        bindings = <&kp LCTRL &kp LSHFT &kp N>;
+                };
+                new_tab: new_tab {
+                        compatible = "zmk,behavior-macro";
+                        label = "NEW_TAB";
+                        bindings = <&kp LCTRL &kp T>;
+                };
+                emoji: emoji {
+                        compatible = "zmk,behavior-macro";
+                        label = "EMOJI";
+                        bindings = <&kp LCTRL &kp LCMD &kp SPACE>;
+                };
+                fname: fname {
+                        compatible = "zmk,behavior-macro";
+                        label = "FNAME";
+                        bindings = <&kp LSHFT &kp A &kp D &kp A &kp M>;
+                };
+                lname: lname {
+                        compatible = "zmk,behavior-macro";
+                        label = "LNAME";
+                        bindings = <&kp LSHFT &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K>;
+                };
+                email: lname {
+                        compatible = "zmk,behavior-macro";
+                        label = "LNAME";
+                        bindings = <&kp A &kp D &kp A &kp M
+                        &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K
+                        &kp AT &kp G &kp M &kp A &kp I &kp L
+                        &kp DOT &kp C &kp O &kp M>
+                        >;
+                };
+
+        };
+
+        combos {
+                compatible = "zmk,combos";
+                
+                combo_Lshift_period_to_excl {
+                        timeout-ms = <50>;
+                        key-positions = < &kp LSHFT &kp DOT >;
+                        bindings = < &kp EXCL >;
+                };
+
+                combo_Rshift_period_to_excl {
+                        timeout-ms = <50>;
+                        key-positions = < &kp RSHFT &kp DOT >;
+                        bindings = < &kp EXCL >;
+                };
+
+                combo_Lshift_comma_to_question {
+                        timeout-ms = <50>;
+                        key-positions = < &kp LSHFT &kp COMMA >;
+                        bindings = < &kp QMARK >;
+                };
+
+                combo_Lshift_comma_to_question {
+                        timeout-ms = <50>;
+                        key-positions = < &kp RSHFT &kp COMMA >;
+                        bindings = < &kp QMARK >;
+                };
+
+                combo_CTRL_Q_to_CAPS {
+                        timeout-ms = <50>;
+                        key-positions = < &kp LCTRL &kp Q >;
+                        bindings = < &kp CAPS >;
+                };
+
+                combo_Lshift_Lpar_to_lt {
+                        timeout-ms = <50>;
+                        key-positions = < &kp LSHFT &kp LPAR >;
+                        bindings = < &kp LT >;
+                };
+
+                combo_Rshift_Lpar_to_lt {
+                        timeout-ms = <50>;
+                        key-positions = < &kp RSHFT &kp LPAR >;
+                        bindings = < &kp LT >;
+                };
+
+                combo_Lshift_Rpar_to_gt {
+                        timeout-ms = <50>;
+                        key-positions = < &kp LSHFT &kp RPAR >;
+                        bindings = < &kp GT >;
+                };
+
+                combo_Rshift_Rpar_to_gt {
+                        timeout-ms = <50>;
+                        key-positions = < &kp RSHFT &kp RPAR >;
+                        bindings = < &kp GT >;
+                };
+        };
+
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-//              |Q:Cap|  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  | ,/? |
+//              |  Q  |  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  | ,/? |
 //              |  A  |  R  |  S  |  T  |  D  |    |  H  |  N  |  E  |  I  |  O  |
 //              |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  | ./! |  ;  |  '  |
 //
-//                 | TAB:LSHFT | SPC | CMD:L1 |    | L1:CTRL | ENT:L2 | BSP:RSHIFT |
+//                 | LSHFT:TAB | SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none     &mt CAPS Q &kp W &kp F &kp P &kp G /**/ &kp J &kp L &kp U &kp Y &kp COMMA           &none
-&none          &kp A &kp R &kp S &kp T &kp D /**/ &kp H &kp N &kp E &kp I &kp O               &none
-&none          &kp Z &kp X &kp C &kp V &kp B /**/ &kp K &kp M &kp DOT &kp SEMI &kp SQT        &none
-           &mt LSHIFT TAB &kp SPACE &sk LCMD /**/ &kp RET &to 1 &mt RSHIFT BSPC
+        &none &kp Q &kp W &kp F &kp P &kp G /**/ &kp J &kp L &kp U &kp Y &kp COMMA &none
+        &none &kp A &kp R &kp S &kp T &kp D /**/ &kp H &kp N &kp E &kp I &kp O &none
+        &none &kp Z &kp X &kp C &kp V &kp B /**/ &kp K &kp M &kp DOT &kp SEMI &kp SQT &none
+        &mt LSHIFT TAB &kp SPACE &num_cmd /**/ &ctrl_num &func_enter &mt RSHIFT BSPC
                         >;
                 };
 
                 num_layer {
 // -----------------------------------------------------------------------------------------
-//              |  `  |  7  |  8  |  9  |  #  |    |    =   |   +  |  -   |   *   |  /  |
-//              |  &  |  4  |  5  |  6  |  0  |    |  LEFT  |  UP  | DOWN | RIGHT |  %  |
-//              |  @  |  1  |  2  |  3  |  .  |    |  (/<   |  )/> |  [   |   ]   |  \  |
+//              |  $  |  7  |  8  |  9  |  #  |    |  +  |  -   |  UP  |   *   |  /  |
+//              |  &  |  4  |  5  |  6  |  0  |    |  =  | LEFT | DOWN | RIGHT |  _  |
+//              |  `  |  1  |  2  |  3  |  .  |    | (/< | )/>  |   [  |   ]   |  \  |
 //
-//                 | TAB:LSHFT | SPC | CMD:L2 |    | L0:CTRL | ENT | BSP:RSHIFT |
+//                  | LSHFT:TAB | SPC |  CMD  |    | CTRL:L0 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none     &mt CAPS Q &kp W &kp F &kp P &kp G /**/ &kp J &kp L &kp U &kp Y &kp COMMA           &none
-&none          &kp A &kp R &kp S &kp T &kp D /**/ &kp H &kp N &kp E &kp I &kp O               &none
-&none          &kp Z &kp X &kp C &kp V &kp B /**/ &kp K &kp M &kp DOT &kp SEMI &kp SQT        &none
-           &mt LSHIFT TAB &kp SPACE &sk LCMD /**/ &kp RET &to 1 &mt RSHIFT BSPC
+&none &kp DLLR &kp N7 &kp N8 &kp N9 &kp HASH /**/ &kp PLUS &kp MINUS &kp UP &kp ASTRK &kp FSLH &none
+&none &kp AMPS &kp N4 &kp N5 &kp N6 &kp N0 /**/ &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT &kp UNDER &none
+&none &kp GRAVE &kp N1 &kp N2 &kp N3 &kp DOT /**/ &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp BSLH &none
+        &mt LSHIFT TAB &kp SPACE &sk LCMD /**/ &ctrl_default &func_enter &mt RSHIFT BSPC
                         >;
                 };
 
                 func_layer {
 // -----------------------------------------------------------------------------------------
-//      | ESC |  .  |  .  |     .     |     .     |    |new_wind| new_tab|  .   |  .  | pg_up |
-//      |  .  |emoji|  .  | BRIGHT_DN | BRIGHT_UP |    | VOL_DN | VOL_UP | MUTE |  .  | pg_dn |
-//      |fname|lname|email|     .     |    ALT    |    |   DEL  |    .   |  .   |  .  |  end  |
+//      | ESC |  .  |  .  |     .     |     .     |    |new_inc | new_win|new_tab|  .  | pg_up |
+//      |emoji|  .  |  .  | BRIGHT_DN | BRIGHT_UP |    | VOL_DN | VOL_UP | MUTE  |  .  | pg_dn |
+//      |fname|lname|email|     .     |     .     |    |    .   |    .   |   .   |  .  |  end  |
 //
-//                              |  .  |  .  |  .  |    | trans |  .  |  game  |
+//                           |  GAME  |  .  |  .  |    |  .  |  .  |  .  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+&none &kp ESC &none &none &none &none /**/ &new_inc_win &new_win &new_tab &none &kp PG_UP &none
+&none &emoji &none &none &kp C_BRI_DN &kp C_BRI_UP /**/ &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &none &kp PG_DN &none
+&none &fname &lname &email &none &none /**/ &none &none &none &none &kp END &none
+                &to GAME &none &none /**/ &none &none &none
                         >;
                 };
 
                 game_layer {
 // -----------------------------------------------------------------------------------------
-//              | ESC |  Q  |  W  |  E  |  R  |    |  1  |   2  |  UP  |   3   |  4   |
-//              |  .  |  A  |  S  |  D  |  F  |    |  .  | LEFT | DOWN | RIGHT | MUTE |
-//              |  Z  |  X  |  C  |  V  |  B  |    |  I  |   J  |   M  |   T   | CTRL |
+//              | ESC |  Q  |  W  |  E  |  R  |    |   1  |   2  |  UP  |   3   |  4   |
+//              |  .  |  A  |  S  |  D  |  F  |    | MUTE | LEFT | DOWN | RIGHT |  .   |
+//              |  Z  |  X  |  C  |  V  |  B  |    |   I  |   J  |   M  |   T   | CTRL |
 //
-//                      | LSHIFT | SPC |  L1  |    |  L2  | SPC | RSHIFT |
+//                      | LSHIFT | SPC |  L0  |    |  L0  | SPC | RSHIFT |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+&none &kp ESC &kp Q &kp W &kp E &kp R /**/ &kp N1 &kp N2 &kp UP &kp N3 &kp N4 &none
+&none &none &kp A &kp S &kp D &kp F /**/ &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT &none &none
+&none &kp Z &kp X &kp C &kp V &kp B /**/ &kp I &kp J &kp M &kp T &kp LCTRL &none
+           &kp LSHIFT &kp SPACE &to DEFAULT /**/ &mo DEFAULT &kp SPACE &kp RSHIFT
                         >;
                 };
         };
