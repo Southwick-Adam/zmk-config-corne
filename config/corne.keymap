@@ -75,7 +75,7 @@
                         label = "LNAME";
                         bindings = <&kp LSHFT &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K>;
                 };
-                email: lname {
+                email: email {
                         compatible = "zmk,behavior-macro";
                         label = "EMAIL";
                         bindings = <&kp A &kp D &kp A &kp M &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
