@@ -16,178 +16,117 @@
 
 / {
         behaviors {
-                num_cmd: num_cmd {
+                mo_sk: mo_sk {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "NUM_CMD";
-                        bindings = <&mo NUM &sk LCMD>;
+                        label = "MO_SK";
+                        bindings = <&mo &sk>;
                         tapping-term-ms = <200>;
                 };
 
-                ctrl_num: ctrl_num {
+                kp_to: kp_to {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "CTRL_NUM";
-                        bindings = <&kp LCTRL &to NUM>;
+                        label = "KP_TO";
+                        bindings = <&kp &to>;
                         tapping-term-ms = <200>;
                 };
 
-                ctrl_default: ctrl_default {
+                mo_kp: mo_kp {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "CTRL_DEFAULT";
-                        bindings = <&kp LCTRL &to DEFAULT>;
+                        label = "MO_KP";
+                        bindings = <&mo &kp>;
                         tapping-term-ms = <200>;
                 };
 
-                func_enter: func_enter {
+                kp_sk: kp_sk {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "FUNC_ENTER";
-                        bindings = <&mo FUNC &sk RET>;
+                        label = "KP_SK";
+                        bindings = <&kp &sk>;
                         tapping-term-ms = <200>;
                 };
-
-                //MACROS
-                new_win: new_win {
-                        compatible = "zmk,behavior-macro";
-                        label = "NEW_WINDOW";
-                        bindings = <&kp LCTRL &kp N>;
-                };
-                new_inc_win: new_inc_win {
-                        compatible = "zmk,behavior-macro";
-                        label = "NEW_INCOG_WINDOW";
-                        bindings = <&kp LCTRL &kp LSHFT &kp N>;
-                };
-                new_tab: new_tab {
-                        compatible = "zmk,behavior-macro";
-                        label = "NEW_TAB";
-                        bindings = <&kp LCTRL &kp T>;
-                };
-                emoji: emoji {
-                        compatible = "zmk,behavior-macro";
-                        label = "EMOJI";
-                        bindings = <&kp LCTRL &kp LCMD &kp SPACE>;
-                };
-                fname: fname {
-                        compatible = "zmk,behavior-macro";
-                        label = "FNAME";
-                        bindings = <&kp LSHFT &kp A &kp D &kp A &kp M>;
-                };
-                lname: lname {
-                        compatible = "zmk,behavior-macro";
-                        label = "LNAME";
-                        bindings = <&kp LSHFT &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K>;
-                };
-                email: email {
-                        compatible = "zmk,behavior-macro";
-                        label = "EMAIL";
-                        bindings = <&kp A &kp D &kp A &kp M &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
-                };
-
         };
 
-        combos {
-                compatible = "zmk,combos";
                 
-                combo_Lshift_period_to_excl {
-                        timeout-ms = <50>;
-                        key-positions = < &kp LSHFT &kp DOT >;
-                        bindings = < &kp EXCL >;
+        macros {
+                fname: fname {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                        = <&macro_press &kp LSHFT>
+                        , <&macro_tap &kp A>
+                        , <&macro_release &kp LSHFT>
+                        , <&macro_tap &kp D &kp A &kp M>
+                        ;
                 };
 
-                combo_Rshift_period_to_excl {
-                        timeout-ms = <50>;
-                        key-positions = < &kp RSHFT &kp DOT >;
-                        bindings = < &kp EXCL >;
+                lname: lname {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                        = <&macro_press &kp LSHFT>
+                        , <&macro_tap &kp S>
+                        , <&macro_release &kp LSHFT>
+                        , <&macro_tap &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K>
+                        ;
                 };
 
-                combo_Lshift_comma_to_question {
-                        timeout-ms = <50>;
-                        key-positions = < &kp LSHFT &kp COMMA >;
-                        bindings = < &kp QMARK >;
-                };
-
-                combo_Rshift_comma_to_question {
-                        timeout-ms = <50>;
-                        key-positions = < &kp RSHFT &kp COMMA >;
-                        bindings = < &kp QMARK >;
-                };
-
-                combo_CTRL_Q_to_CAPS {
-                        timeout-ms = <50>;
-                        key-positions = < &kp LCTRL &kp Q >;
-                        bindings = < &kp CAPS >;
-                };
-
-                combo_Lshift_Lpar_to_lt {
-                        timeout-ms = <50>;
-                        key-positions = < &kp LSHFT &kp LPAR >;
-                        bindings = < &kp LT >;
-                };
-
-                combo_Rshift_Lpar_to_lt {
-                        timeout-ms = <50>;
-                        key-positions = < &kp RSHFT &kp LPAR >;
-                        bindings = < &kp LT >;
-                };
-
-                combo_Lshift_Rpar_to_gt {
-                        timeout-ms = <50>;
-                        key-positions = < &kp LSHFT &kp RPAR >;
-                        bindings = < &kp GT >;
-                };
-
-                combo_Rshift_Rpar_to_gt {
-                        timeout-ms = <50>;
-                        key-positions = < &kp RSHFT &kp RPAR >;
-                        bindings = < &kp GT >;
+                lname: lname {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                        = <&macro_tap &kp A &kp D &kp A &kp M>
+                        , <&macro_tap &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K>
+                        , <&macro_tap &kp AT &kp G &kp M &kp A &kp I &kp L>
+                        , <&macro_tap &kp DOT &kp C &kp O &kp M>
+                        ;
                 };
         };
-
 
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-//           |  Q  |  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  | ,/? |
+//           |  Q  |  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  |  '  |
 //           |  A  |  R  |  S  |  T  |  D  |    |  H  |  N  |  E  |  I  |  O  |
-//           |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  | ./! |  ;  |  '  |
+//           |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  |  .  |  ,  |  ;  |
 //
 //              | LSHFT:TAB | SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp Q &kp W &kp F &kp P &kp G &kp J &kp L &kp U &kp Y &kp COMMA &none
+&none &kp Q &kp W &kp F &kp P &kp G &kp J &kp L &kp U &kp Y &kp SQT &none
 &none &kp A &kp R &kp S &kp T &kp D &kp H &kp N &kp E &kp I &kp O &none
-&none &kp Z &kp X &kp C &kp V &kp B &kp K &kp M &kp DOT &kp SEMI &kp SQT &none
-&mt LSHIFT TAB &kp SPACE &num_cmd &ctrl_num &func_enter &mt RSHIFT BSPC
+&none &kp Z &kp X &kp C &kp V &kp B &kp K &kp M &kp DOT &kp COMMA &kp SEMI &none
+&mt LSHIFT TAB &kp SPACE &mo_sk NUM LCMD &kp_to LCTRL NUM &mo_kp FUNC RET &mt RSHIFT BSPC
                         >;
                 };
 
                 num_layer {
 // -----------------------------------------------------------------------------------------
-//           |  $  |  7  |  8  |  9  |  #  |    |  +  |  -   |  UP  |   *   |  /  |
+//           |  !  |  7  |  8  |  9  |  #  |    |  +  |  -   |  UP  |   /   |  *  |
 //           |  &  |  4  |  5  |  6  |  0  |    |  =  | LEFT | DOWN | RIGHT |  _  |
-//           |  `  |  1  |  2  |  3  |  .  |    | (/< | )/>  |   [  |   ]   |  \  |
+//           |  `  |  1  |  2  |  3  |  .  |    |  (  |  )   |   [  |   ]   |  \  |
 //
 //               | LSHFT:TAB | SPC |  CMD  |    | CTRL:L0 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp DLLR &kp N7 &kp N8 &kp N9 &kp HASH &kp PLUS &kp MINUS &kp UP &kp ASTRK &kp FSLH &none
+&none &kp EXCL &kp N7 &kp N8 &kp N9 &kp HASH &kp PLUS &kp MINUS &kp UP &kp FSLH &kp ASTRK &none
 &none &kp AMPS &kp N4 &kp N5 &kp N6 &kp N0 &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT &kp UNDER &none
 &none &kp GRAVE &kp N1 &kp N2 &kp N3 &kp DOT &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp BSLH &none
-&mt LSHIFT TAB &kp SPACE &sk LCMD &ctrl_default &func_enter &mt RSHIFT BSPC
+&mt LSHIFT TAB &kp SPACE &kp_sk LCMD LCMD &kp_to LCTRL DEFAULT &mo_kp FUNC RET &mt RSHIFT BSPC
                         >;
                 };
 
                 func_layer {
 // -----------------------------------------------------------------------------------------
-//    | ESC |  .  |  .  |    .    |    .    |    |new_inc | new_win|new_tab|  .  | pg_up |
-//    |emoji|  .  |  .  |BRIGHT_DN|BRIGHT_UP|    | VOL_DN | VOL_UP | MUTE  |  .  | pg_dn |
-//    |fname|lname|email|    .    |    .    |    |    .   |    .   |   .   |  .  |  end  |
+//    | ESC |  .  |  .  |    .    |    .    |    |new_inc | new_win|new_tab |  .  | pg_up |
+//    |  .  |  .  |  .  |BRIGHT_DN|BRIGHT_UP|    |  MUTE  | VOL_DN | VOL_UP |  .  | pg_dn |
+//    |fname|lname|email|    .    |    .    |    |    .   |    .   |   .    |  .  |  end  |
 //
 //                     |  GAME  |  .  |  .  |    |  .  |  .  |  .  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp ESC &none &none &none &none &new_inc_win &new_win &new_tab &none &kp PG_UP &none
-&none &emoji &none &none &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &none &kp PG_DN &none
+&none &kp ESC &none &none &none &none &kp LC(LS(N)) &kp LC(N) &kp LC(T) &none &kp PG_UP &none
+&none &none &none &none &kp C_BRI_DN &kp C_BRI_UP &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none &kp PG_DN &none
 &none &fname &lname &email &none &none &none &none &none &none &kp END &none
                 &to GAME &none &none &none &none &none
                         >;
@@ -203,9 +142,9 @@
 // -----------------------------------------------------------------------------------------
                         bindings = <
 &none &kp ESC &kp Q &kp W &kp E &kp R &kp N1 &kp N2 &kp UP &kp N3 &kp N4 &none
-&none &kp C_VOL_DN &kp A &kp S &kp D &kp F &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT C_VOL_UP &none
+&none &kp C_VOL_DN &kp A &kp S &kp D &kp F &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT &kp C_VOL_UP &none
 &none &kp Z &kp X &kp C &kp V &kp B &kp I &kp J &kp M &kp T &kp LCTRL &none
-           &kp LSHIFT &kp SPACE &to DEFAULT &mo DEFAULT &kp SPACE &kp RSHIFT
+           &kp LSHIFT &kp SPACE &mo DEFAULT &to DEFAULT &kp SPACE &kp RSHIFT
                         >;
                 };
         };
