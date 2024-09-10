@@ -77,12 +77,8 @@
                 };
                 email: lname {
                         compatible = "zmk,behavior-macro";
-                        label = "LNAME";
-                        bindings = <&kp A &kp D &kp A &kp M
-                        &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K
-                        &kp AT &kp G &kp M &kp A &kp I &kp L
-                        &kp DOT &kp C &kp O &kp M>
-                        >;
+                        label = "EMAIL";
+                        bindings = <&kp A &kp D &kp A &kp M &kp S &kp O &kp U &kp T &kp H &kp W &kp I &kp C &kp K &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
                 };
 
         };
@@ -108,7 +104,7 @@
                         bindings = < &kp QMARK >;
                 };
 
-                combo_Lshift_comma_to_question {
+                combo_Rshift_comma_to_question {
                         timeout-ms = <50>;
                         key-positions = < &kp RSHFT &kp COMMA >;
                         bindings = < &kp QMARK >;
@@ -158,10 +154,10 @@
 //                 | LSHFT:TAB | SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-        &none &kp Q &kp W &kp F &kp P &kp G /**/ &kp J &kp L &kp U &kp Y &kp COMMA &none
-        &none &kp A &kp R &kp S &kp T &kp D /**/ &kp H &kp N &kp E &kp I &kp O &none
-        &none &kp Z &kp X &kp C &kp V &kp B /**/ &kp K &kp M &kp DOT &kp SEMI &kp SQT &none
-        &mt LSHIFT TAB &kp SPACE &num_cmd /**/ &ctrl_num &func_enter &mt RSHIFT BSPC
+&none &kp Q &kp W &kp F &kp P &kp G &kp J &kp L &kp U &kp Y &kp COMMA &none
+&none &kp A &kp R &kp S &kp T &kp D &kp H &kp N &kp E &kp I &kp O &none
+&none &kp Z &kp X &kp C &kp V &kp B &kp K &kp M &kp DOT &kp SEMI &kp SQT &none
+&mt LSHIFT TAB &kp SPACE &num_cmd &ctrl_num &func_enter &mt RSHIFT BSPC
                         >;
                 };
 
@@ -174,10 +170,10 @@
 //                  | LSHFT:TAB | SPC |  CMD  |    | CTRL:L0 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp DLLR &kp N7 &kp N8 &kp N9 &kp HASH /**/ &kp PLUS &kp MINUS &kp UP &kp ASTRK &kp FSLH &none
-&none &kp AMPS &kp N4 &kp N5 &kp N6 &kp N0 /**/ &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT &kp UNDER &none
-&none &kp GRAVE &kp N1 &kp N2 &kp N3 &kp DOT /**/ &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp BSLH &none
-        &mt LSHIFT TAB &kp SPACE &sk LCMD /**/ &ctrl_default &func_enter &mt RSHIFT BSPC
+&none &kp DLLR &kp N7 &kp N8 &kp N9 &kp HASH &kp PLUS &kp MINUS &kp UP &kp ASTRK &kp FSLH &none
+&none &kp AMPS &kp N4 &kp N5 &kp N6 &kp N0 &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT &kp UNDER &none
+&none &kp GRAVE &kp N1 &kp N2 &kp N3 &kp DOT &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp BSLH &none
+&mt LSHIFT TAB &kp SPACE &sk LCMD &ctrl_default &func_enter &mt RSHIFT BSPC
                         >;
                 };
 
@@ -190,10 +186,10 @@
 //                           |  GAME  |  .  |  .  |    |  .  |  .  |  .  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp ESC &none &none &none &none /**/ &new_inc_win &new_win &new_tab &none &kp PG_UP &none
-&none &emoji &none &none &kp C_BRI_DN &kp C_BRI_UP /**/ &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &none &kp PG_DN &none
-&none &fname &lname &email &none &none /**/ &none &none &none &none &kp END &none
-                &to GAME &none &none /**/ &none &none &none
+&none &kp ESC &none &none &none &none &new_inc_win &new_win &new_tab &none &kp PG_UP &none
+&none &emoji &none &none &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE &none &kp PG_DN &none
+&none &fname &lname &email &none &none &none &none &none &none &kp END &none
+                &to GAME &none &none &none &none &none
                         >;
                 };
 
@@ -206,10 +202,10 @@
 //                      | LSHIFT | SPC |  L0  |    |  L0  | SPC | RSHIFT |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp ESC &kp Q &kp W &kp E &kp R /**/ &kp N1 &kp N2 &kp UP &kp N3 &kp N4 &none
-&none &none &kp A &kp S &kp D &kp F /**/ &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT &none &none
-&none &kp Z &kp X &kp C &kp V &kp B /**/ &kp I &kp J &kp M &kp T &kp LCTRL &none
-           &kp LSHIFT &kp SPACE &to DEFAULT /**/ &mo DEFAULT &kp SPACE &kp RSHIFT
+&none &kp ESC &kp Q &kp W &kp E &kp R &kp N1 &kp N2 &kp UP &kp N3 &kp N4 &none
+&none &none &kp A &kp S &kp D &kp F &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT &none &none
+&none &kp Z &kp X &kp C &kp V &kp B &kp I &kp J &kp M &kp T &kp LCTRL &none
+           &kp LSHIFT &kp SPACE &to DEFAULT &mo DEFAULT &kp SPACE &kp RSHIFT
                         >;
                 };
         };
