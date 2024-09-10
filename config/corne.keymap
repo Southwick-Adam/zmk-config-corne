@@ -18,29 +18,22 @@
         behaviors {
                 mo_sk: mo_sk {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "MO_SK";
-                        bindings = <&mo &sk>;
+                        #binding-cells = <2>;
+                        bindings = <&mo>, <&sk>;
                         tapping-term-ms = <200>;
                 };
 
                 kp_to: kp_to {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "KP_TO";
-                        bindings = <&kp &to>;
-                        tapping-term-ms = <200>;
-                };
-
-                mo_kp: mo_kp {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "MO_KP";
-                        bindings = <&mo &kp>;
+                        #binding-cells = <2>;
+                        bindings = <&kp>, <&to>;
                         tapping-term-ms = <200>;
                 };
 
                 kp_sk: kp_sk {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "KP_SK";
-                        bindings = <&kp &sk>;
+                        #binding-cells = <2>;
+                        bindings = <&kp>, <&sk>;
                         tapping-term-ms = <200>;
                 };
         };
@@ -93,10 +86,10 @@
 //              | LSHFT:TAB | SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp Q &kp W &kp F &kp P &kp G &kp J &kp L &kp U &kp Y &kp SQT &none
-&none &kp A &kp R &kp S &kp T &kp D &kp H &kp N &kp E &kp I &kp O &none
-&none &kp Z &kp X &kp C &kp V &kp B &kp K &kp M &kp DOT &kp COMMA &kp SEMI &none
-&mt LSHIFT TAB &kp SPACE &mo_sk NUM LCMD &kp_to LCTRL NUM &mo_kp FUNC RET &mt RSHIFT BSPC
+&none &kp Q &kp W &kp F &kp P &kp G    &kp J &kp L &kp U &kp Y &kp SQT &none
+&none &kp A &kp R &kp S &kp T &kp D    &kp H &kp N &kp E &kp I &kp O &none
+&none &kp Z &kp X &kp C &kp V &kp B    &kp K &kp M &kp DOT &kp COMMA &kp SEMI &none
+&mt LSHIFT TAB &kp SPACE &mo_sk NUM LCMD    &kp_to LCTRL NUM &lt FUNC RET &mt RSHIFT BSPC
                         >;
                 };
 
@@ -112,7 +105,7 @@
 &none &kp EXCL &kp N7 &kp N8 &kp N9 &kp HASH &kp PLUS &kp MINUS &kp UP &kp FSLH &kp ASTRK &none
 &none &kp AMPS &kp N4 &kp N5 &kp N6 &kp N0 &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT &kp UNDER &none
 &none &kp GRAVE &kp N1 &kp N2 &kp N3 &kp DOT &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp BSLH &none
-&mt LSHIFT TAB &kp SPACE &kp_sk LCMD LCMD &kp_to LCTRL DEFAULT &mo_kp FUNC RET &mt RSHIFT BSPC
+&mt LSHIFT TAB &kp SPACE &kp_sk LCMD LCMD &kp_to LCTRL DEFAULT &lt FUNC RET &mt RSHIFT BSPC
                         >;
                 };
 
