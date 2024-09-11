@@ -86,9 +86,9 @@
 //              | LSHFT:TAB | SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp Q &kp W &kp F &kp P &kp G    &kp J &kp L &kp U &kp Y &kp SQT &none
-&none &kp A &kp R &kp S &kp T &kp D    &kp H &kp N &kp E &kp I &kp O &none
-&none &kp Z &kp X &kp C &kp V &kp B    &kp K &kp M &kp DOT &kp COMMA &kp SEMI &none
+&none   &kp Q &kp W &kp F &kp P &kp G    &kp J &kp L &kp U &kp Y &kp SQT        &none
+&none   &kp A &kp R &kp S &kp T &kp D    &kp H &kp N &kp E &kp I &kp O          &none
+&none   &kp Z &kp X &kp C &kp V &kp B    &kp K &kp M &kp DOT &kp COMMA &kp SEMI &none
 &mt LSHIFT TAB &kp SPACE &mo_sk NUM LCMD    &kp_to LCTRL NUM &lt FUNC RET &mt RSHIFT BSPC
                         >;
                 };
@@ -102,26 +102,26 @@
 //               | LSHFT:TAB | SPC |  CMD  |    | CTRL:L0 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp EXCL &kp N7 &kp N8 &kp N9 &kp HASH &kp PLUS &kp MINUS &kp UP &kp FSLH &kp ASTRK &none
-&none &kp AMPS &kp N4 &kp N5 &kp N6 &kp N0 &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT &kp UNDER &none
-&none &kp GRAVE &kp N1 &kp N2 &kp N3 &kp DOT &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp BSLH &none
-&mt LSHIFT TAB &kp SPACE &kp_sk LCMD LCMD &kp_to LCTRL DEFAULT &lt FUNC RET &mt RSHIFT BSPC
+&none   &kp EXCL &kp N7 &kp N8 &kp N9 &kp HASH   &kp PLUS &kp MINUS &kp UP &kp FSLH &kp ASTRK    &none
+&none   &kp AMPS &kp N4 &kp N5 &kp N6 &kp N0     &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT &kp UNDER &none
+&none   &kp GRAVE &kp N1 &kp N2 &kp N3 &kp DOT   &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp BSLH    &none
+    &mt LSHIFT TAB &kp SPACE &kp_sk LCMD LCMD    &kp_to LCTRL DEFAULT &lt FUNC RET &mt RSHIFT BSPC
                         >;
                 };
 
                 func_layer {
 // -----------------------------------------------------------------------------------------
-//    | ESC |  .  |  .  |    .    |    .    |    |new_inc | new_win|new_tab |  .  | pg_up |
-//    |  .  |  .  |  .  |BRIGHT_DN|BRIGHT_UP|    |  MUTE  | VOL_DN | VOL_UP |  .  | pg_dn |
-//    |fname|lname|email|    .    |    .    |    |    .   |    .   |   .    |  .  |  end  |
+//  |   ESC   |  fname  | lname  |  email |  addr |    |  ^  |  $  |  K  |  W  |  .  |
+//  |BRIGHT_DN|BRIGHT_UP| VOL_DN | VOL_UP | MUTE  |    |  G  |  H  |  J  |  L  |  .  |
+//  |  pg_up  |  pg_dn  | new_tab| new_win|new_inc|    |  E  |  %  |  F  |  B  |  .  |
 //
-//                     |  GAME  |  .  |  .  |    |  .  |  .  |  .  |
+//                     |  GAME  |  .  |  L0  |    |  .  |  .  |  .  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp ESC &none &none &none &none &kp LC(LS(N)) &kp LC(N) &kp LC(T) &none &kp PG_UP &none
-&none &none &none &none &kp C_BRI_DN &kp C_BRI_UP &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none &kp PG_DN &none
-&none &fname &lname &email &none &none &none &none &none &none &kp END &none
-                &to GAME &none &none &none &none &none
+&none   &kp ESC &fname &lname &email &addr                               &kp CARET &kp DLLR &kp K &kp W &none    &none
+&none   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &kp G &kp H &kp J &kp L &none           &none
+&none   &kp PG_UP &kp PG_DN &kp LC(T) &kp LC(N) &kp LC(LS(N))            &kp E &kp PRCNT &kp F &kp B &none       &none
+                                        &to GAME &none &to DEFAULT       &none &none &none
                         >;
                 };
 
@@ -129,15 +129,15 @@
 // -----------------------------------------------------------------------------------------
 //           | ESC  |  Q  |  W  |  E  |  R  |    |   1  |   2  |  UP  |   3   |  4   |
 //           |VOL_DN|  A  |  S  |  D  |  F  |    | MUTE | LEFT | DOWN | RIGHT |VOL_UP|
-//           |  Z   |  X  |  C  |  V  |  B  |    |   I  |   J  |   M  |   T   | CTRL |
+//           |LSHIFT|  Z  |  X  |  C  |  V  |    |   I  |   J  |   M  |   T   | CTRL |
 //
-//                    | LSHIFT | SPC |  L0  |    |  L0  | SPC | RSHIFT |
+//                    | LSHIFT | SPC |  L0  |    |  L0  | L2:ENT | RSHIFT |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none &kp ESC &kp Q &kp W &kp E &kp R &kp N1 &kp N2 &kp UP &kp N3 &kp N4 &none
-&none &kp C_VOL_DN &kp A &kp S &kp D &kp F &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT &kp C_VOL_UP &none
-&none &kp Z &kp X &kp C &kp V &kp B &kp I &kp J &kp M &kp T &kp LCTRL &none
-           &kp LSHIFT &kp SPACE &mo DEFAULT &to DEFAULT &kp SPACE &kp RSHIFT
+&none   &kp ESC &kp Q &kp W &kp E &kp R         &kp N1 &kp N2 &kp UP &kp N3 &kp N4                    &none
+&none   &kp C_VOL_DN &kp A &kp S &kp D &kp F    &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT &kp C_VOL_UP   &none
+&none   &kp LSHFT &kp Z &kp X &kp C &kp V       &kp I &kp J &kp M &kp T &kp LCTRL                     &none
+           &kp LSHIFT &kp SPACE &mo DEFAULT     &to DEFAULT &lt FUNC RET &kp RSHIFT
                         >;
                 };
         };
