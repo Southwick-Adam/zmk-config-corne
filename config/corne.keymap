@@ -111,14 +111,14 @@
 
                 func_layer {
 // -----------------------------------------------------------------------------------------
-//  |   ESC   |  fname  | lname  |  email |  addr |    |  ^  |  $  |  K  |  W  |  .  |
+//  |   ESC   |  fname  | lname  |  email |   .   |    |  ^  |  $  |  K  |  W  |  .  |
 //  |BRIGHT_DN|BRIGHT_UP| VOL_DN | VOL_UP | MUTE  |    |  G  |  H  |  J  |  L  |  .  |
 //  |  pg_up  |  pg_dn  | new_tab| new_win|new_inc|    |  E  |  %  |  F  |  B  |  .  |
 //
 //                     |  GAME  |  .  |  L0  |    |  .  |  .  |  .  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none   &kp ESC &fname &lname &email &addr                               &kp CARET &kp DLLR &kp K &kp W &none    &none
+&none   &kp ESC &fname &lname &email &none                               &kp CARET &kp DLLR &kp K &kp W &none    &none
 &none   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &kp G &kp H &kp J &kp L &none           &none
 &none   &kp PG_UP &kp PG_DN &kp LC(T) &kp LC(N) &kp LC(LS(N))            &kp E &kp PRCNT &kp F &kp B &none       &none
                                         &to GAME &none &to DEFAULT       &none &none &none
