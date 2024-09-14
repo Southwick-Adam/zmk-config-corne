@@ -106,61 +106,65 @@
 //           |  A  |  R  |  S  |  T  |  D  |    |  H  |  N  |  E  |  I  |  O  |
 //           |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  |  .  |  ,  |  ;  |
 //
-//              | LSHFT:TAB | SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
+//          | LSHFT:TAB | L2:SPC | L1:CMD |    | CTRL:L1 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
 &none   &kp Q &kp W &kp F &kp P &kp G    &kp J &kp L &kp U &kp Y &kp SQT        &none
 &none   &kp A &kp R &kp S &kp T &kp D    &kp H &kp N &kp E &kp I &kp O          &none
 &none   &kp Z &kp X &kp C &kp V &kp B    &kp K &kp M &kp DOT &kp COMMA &kp SEMI &none
-&mt LSHIFT TAB &kp SPACE &mo_sk NUM LCMD    &kp_to LCTRL NUM &lt FUNC RET &mt RSHIFT BSPC
+
+&mt LSHIFT TAB &lt FUNC SPACE &mo_sk NUM LCMD    &kp_to LCTRL NUM &lt FUNC RET &mt RSHIFT BSPC
                         >;
                 };
 
                 num_layer {
 // -----------------------------------------------------------------------------------------
-//           |  !  |  7  |  8  |  9  |  #  |    |  +  |  -   |  UP  |   /   |  *  |
-//           |  &  |  4  |  5  |  6  |  0  |    |  =  | LEFT | DOWN | RIGHT |  _  |
-//           |  `  |  1  |  2  |  3  |  .  |    |  (  |  )   |   [  |   ]   |  \  |
+//           |  \  |  1  |  2  |  3  |  #  |    |  +  |  -  |  !  |  [  |  ]  |
+//           |  ?  |  4  |  5  |  6  |  0  |    |  =  |  &  |  |  |  (  |  )  |
+//           |  `  |  7  |  8  |  9  |  .  |    |  *  |  /  |  _  |  <  |  >  |
 //
-//               | LSHFT:TAB | SPC |  CMD  |    | CTRL:L0 | L2:ENT | RSHFT:BSP |
+//           | LSHFT:TAB | L2:SPC |  CMD  |    | CTRL:L0 | L2:ENT | RSHFT:BSP |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none   &kp EXCL &kp N7 &kp N8 &kp N9 &kp HASH   &kp PLUS &kp MINUS &kp UP &kp FSLH &kp ASTRK    &none
-&none   &kp AMPS &kp N4 &kp N5 &kp N6 &kp N0     &kp EQUAL &kp LEFT &kp DOWN &kp RIGHT &kp UNDER &none
-&none   &kp GRAVE &kp N1 &kp N2 &kp N3 &kp DOT   &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp BSLH    &none
-    &mt LSHIFT TAB &kp SPACE &kp_sk LCMD LCMD    &kp_to LCTRL DEFAULT &lt FUNC RET &mt RSHIFT BSPC
+&none   &kp BSLH &kp N1 &kp N2 &kp N3 &kp HASH   &kp PLUS &kp MINUS &kp EXCL &kp LBKT &kp RBKT   &none
+&none   &kp QMARK &kp N4 &kp N5 &kp N6 &kp N0    &kp EQUAL &kp AMPS &kp PIPE &kp LPAR &kp RPAR   &none
+&none   &kp GRAVE &kp N7 &kp N8 &kp N9 &kp DOT   &kp ASTRK &kp FSLH &kp UNDER &kp LT &kp GT      &none
+
+&mt LSHIFT TAB &lt FUNC SPACE &kp_sk LCMD LCMD    &kp_to LCTRL DEFAULT &lt FUNC RET &mt RSHIFT BSPC
                         >;
                 };
 
                 func_layer {
 // -----------------------------------------------------------------------------------------
-//  |   ESC   |  fname  | lname  |  email | addr  |    |  ^  |  $  |  K  |  W  |  .  |
-//  |BRIGHT_DN|BRIGHT_UP| VOL_DN | VOL_UP | MUTE  |    |  G  |  H  |  J  |  L  |  .  |
-//  |  pg_up  |  pg_dn  | new_tab| new_win|new_inc|    |  E  |  %  |  F  |  B  |  .  |
+//  |   ESC   |  fname  | lname  |  email | addr  |    |   B  |  F   |  E |   W   | pg_up |
+//  | new_inc | new_tab | new_win|   G    |  CTRL |    | LEFT | DOWN | UP | RIGHT |  GAME |
+//  |BRIGHT_DN|BRIGHT_UP| VOL_DN | VOL_UP | MUTE  |    |   ^  |  %   |  Z |   $   | pg_dn |
 //
-//                     |  GAME  |  .  |  L0  |    |  .  |  .  |  .  |
+//                         |  LSHFT  |  .  |  L0  |    |  L0  |  .  |  RSHFT  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none   &kp ESC &fname &lname &email &addr                               &kp CARET &kp DLLR &kp K &kp W &none    &none
-&none   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &kp G &kp H &kp J &kp L &none           &none
-&none   &kp PG_UP &kp PG_DN &kp LC(T) &kp LC(N) &kp LC(LS(N))            &kp E &kp PRCNT &kp F &kp B &none       &none
-                                        &to GAME &none &to DEFAULT       &none &none &none
+&none   &kp ESC &fname &lname &email &addr                              &kp B &kp F &kp E &kp W &kp PG_UP           &none
+&none   &kp LC(LS(N)) &kp LC(T) &kp LC(N) &kp G &kp LCTRL               &kp LEFT &kp DOWN &kp UP &kp RIGHT &to GAME &none
+&none   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE  &kp CARET &kp PRCNT &kp Z &kp DLLR &PG_DN   &none
+
+                                        &kp LSHFT &none &to DEFAULT     &to DEFAULT &none &kp RSHFT
                         >;
                 };
 
                 game_layer {
 // -----------------------------------------------------------------------------------------
 //           | ESC  |  Q  |  W  |  E  |  R  |    |   1  |   2  |  UP  |   3   |  4   |
-//           |VOL_DN|  A  |  S  |  D  |  F  |    | MUTE | LEFT | DOWN | RIGHT |VOL_UP|
-//           |LSHIFT|  Z  |  X  |  C  |  V  |    |   I  |   J  |   M  |   T   | CTRL |
+//           |   .  |  A  |  S  |  D  |  F  |    |   .  | LEFT | DOWN | RIGHT |  5   |
+//           |LSHIFT|  Z  |  X  |  C  |  V  |    |   I  |   J  |   M  |   T   |  6   |
 //
-//                    | LSHIFT | SPC |  L0  |    |  L0  | L2:ENT | RSHIFT |
+//                 | LSHIFT | L2:SPC |  L0  |    |  L0  | L2:ENT | RSHIFT |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none   &kp ESC &kp Q &kp W &kp E &kp R         &kp N1 &kp N2 &kp UP &kp N3 &kp N4                    &none
-&none   &kp C_VOL_DN &kp A &kp S &kp D &kp F    &kp C_MUTE &kp LEFT &kp DOWN &kp RIGHT &kp C_VOL_UP   &none
-&none   &kp LSHFT &kp Z &kp X &kp C &kp V       &kp I &kp J &kp M &kp T &kp LCTRL                     &none
-           &kp LSHIFT &kp SPACE &mo DEFAULT     &to DEFAULT &lt FUNC RET &kp RSHIFT
+&none   &kp ESC &kp Q &kp W &kp E &kp R    &kp N1 &kp N2 &kp UP &kp N3 &kp N4        &none
+&none   &none &kp A &kp S &kp D &kp F      &none &kp LEFT &kp DOWN &kp RIGHT &kp N5   &none
+&none   &kp LSHFT &kp Z &kp X &kp C &kp V  &kp I &kp J &kp M &kp T &kp N6            &none
+
+&kp LSHIFT &lt FUNC SPACE &mo DEFAULT     &to DEFAULT &lt FUNC RET &kp RSHIFT
                         >;
                 };
         };
