@@ -143,9 +143,9 @@
 //                         |  LSHFT  |  .  |  L0  |    |  L0  |  .  |  RSHFT  |
 // -----------------------------------------------------------------------------------------
                         bindings = <
-&none   &kp ESC &fname &lname &email &addr                              &kp B &kp F &kp E &kp W &kp PG_UP           &none
-&none   &kp LC(LS(N)) &kp LC(T) &kp LC(N) &kp G &kp LCTRL               &kp LEFT &kp DOWN &kp UP &kp RIGHT &to GAME &none
-&none   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE  &kp CARET &kp PRCNT &kp Z &kp DLLR &PG_DN   &none
+&none   &kp ESC &fname &lname &email &addr                              &kp B &kp F &kp E &kp W &kp PG_UP             &none
+&none   &kp LC(LS(N)) &kp LC(T) &kp LC(N) &kp G &kp LCTRL               &kp LEFT &kp DOWN &kp UP &kp RIGHT &to GAME   &none
+&none   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE  &kp CARET &kp PRCNT &kp Z &kp DLLR &kp PG_DN  &none
 
                                         &kp LSHFT &none &to DEFAULT     &to DEFAULT &none &kp RSHFT
                         >;
