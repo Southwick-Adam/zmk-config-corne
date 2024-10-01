@@ -32,7 +32,7 @@
                         tapping-term-ms = <200>;
                 };
 
-                mo_vim: mo_to {
+                mo_vim: mo_vim {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
                         bindings = <&mo>, <&go_vim>;
@@ -155,7 +155,7 @@
 &none   &kp A &kp R &kp S &kp T &kp D    &kp H &kp N &kp E &kp I &kp O          &none
 &none   &kp Z &kp X &kp C &kp V &kp B    &kp K &kp M &kp DOT &kp COMMA &kp SEMI &none
 
-&mt LSHIFT TAB &mt LCTRL SPACE &mo_to DEFAULT DEFAULT   &mo_to NUM NUM  &mt LCTRL RET &mo_vim FUNC
+&mt LSHIFT TAB &mt LCTRL SPACE &mo_to DEFAULT DEFAULT   &mo_to NUM NUM  &mt LCMD RET &mo_vim FUNC
                         >;
                 };
 
