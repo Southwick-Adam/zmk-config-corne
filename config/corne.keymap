@@ -31,13 +31,6 @@
                         bindings = <&mo>, <&to>;
                         tapping-term-ms = <200>;
                 };
-
-                mo_vim: mo_vim {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        bindings = <&mo>, <&go_vim>;
-                        tapping-term-ms = <200>;
-                };
         };
 
                 
@@ -126,7 +119,7 @@
                 bindings
                         = <&macro_tap &kp ESC &to VIM >
                         ;
-                };    
+                };     
         };
 
         combos {
@@ -136,6 +129,13 @@
                 layers = <0>;
                 key-positions = <39 40>;
                 bindings = <&kp CAPS>;
+                };
+
+                combo_func {
+                timeout-ms = <50>;
+                layers = <0 1 2 3 5>;
+                key-positions = <37 42>;
+                bindings = <&mo FUNC>;
                 };
         };
 
@@ -148,14 +148,14 @@
 //           |  A  |  R  |  S  |  T  |  D  |    |  H  |  N  |  E  |  I  |  O  |
 //           |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  |  .  |  ,  |  ;  |
 //
-//        | LSHIFT:TAB | CTRL:SPC | L0:L0 |    | L1:L1 | CMD:ENT | L4:L3 |
+//         | LSHIFT:TAB | CTRL:SPC | L0:L0 |    | L1:L1 | CMD:ENT | L3 |
 // -----------------------------------------------------------------------------------------
                         bindings = <
 &none   &kp Q &kp W &kp F &kp P &kp G    &kp J &kp L &kp U &kp Y &kp BSPC       &none
 &none   &kp A &kp R &kp S &kp T &kp D    &kp H &kp N &kp E &kp I &kp O          &none
 &none   &kp Z &kp X &kp C &kp V &kp B    &kp K &kp M &kp DOT &kp COMMA &kp SEMI &none
 
-&mt LSHIFT TAB &mt LCTRL SPACE &mo_to DEFAULT DEFAULT   &mo_to NUM NUM  &mt LCMD RET &mo_vim FUNC
+&mt LSHIFT TAB &mt LCTRL SPACE &mo_to DEFAULT DEFAULT   &mo_to NUM NUM  &mt LCMD RET &go_vim
                         >;
                 };
 
@@ -199,7 +199,7 @@
 &none   &kp ESC &kp D &kp O &kp I &kp A         &kp B &kp F &kp E &kp W &kp RBRC              &none
 &none   &kp M &CIW &kp R &kp G &kp LCTRL        &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp LBRC   &none
 &none   &kp U &kp GRAVE &kp TILDE &kp Y &kp V   &kp CARET &kp PRCNT &kp Z &kp DLLR &kp DOT    &none
-                        &trans &trans &insert_0    &insert_1 &trans &trans
+                        &trans &trans &insert_0    &insert_1 &trans &none
                         >;
                 };
 
